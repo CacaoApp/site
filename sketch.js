@@ -70,20 +70,72 @@ function setup() {
 
 function setPositions(){
     this.xChapolin = (windowWidth/4)*1;
-    this.yChapolin = map(puntosChapolin, 0, maximoPuntos, windowHeight, 200*escala);
+    this.yChapolin = map(puntosChapolin, 0, maximoPuntos, windowHeight, 250*escala);
     this.xOcelote = (windowWidth/4)*2;
-    this.yOcelote = map(puntosOcelote, 0, maximoPuntos, windowHeight,200*escala);
+    this.yOcelote = map(puntosOcelote, 0, maximoPuntos, windowHeight, 250*escala);
     this.xHuitzilin = (windowWidth/4)*3;
-    this.yHuitzilin = map(puntosHuitzilin, 0, maximoPuntos, windowHeight, 200*escala);
+    this.yHuitzilin = map(puntosHuitzilin, 0, maximoPuntos, windowHeight, 250*escala);
 }
 
 function setScale(){
-    this.escala = (windowHeight/imgOcelote.width);
+    this.escala = (windowHeight/imgOcelote.height);
     this.escala = map(escala, 1 , 20, 0.5, 1.5);    
+}
+
+function drawPodium(){
+    strokeWeight(10);
+    line(xOcelote-(wOcelote*escala)/2,yOcelote+(hOcelote*escala)/2,xOcelote+(wOcelote*escala)/2,yOcelote+(hOcelote*escala)/2);    
+    line(xHuitzilin-(wHuitzilin*escala)/2,yHuitzilin+(hHuitzilin*escala)/2,xHuitzilin+(wHuitzilin*escala)/2,yHuitzilin+(hHuitzilin*escala)/2);    
+    line(xChapolin-(wChapolin*escala)/2,yChapolin+(hChapolin*escala)/2,xChapolin+(wChapolin*escala)/2,yChapolin+(hChapolin*escala)/2);
+}
+
+function drawScaleRanking(){
+      for(var i = 30 ; i >= 0 ; i-=5 ){
+        textFont(font);
+        fill(0).strokeWeight(0).textSize(25*escala);
+        this.yval = map(i, 0, 30, windowHeight, 250*escala);
+        text((i)+"K" , 10*escala , yval);
+        stroke('#CCC');
+        strokeWeight(1);
+        line(60*escala,yval,windowWidth,yval);
+    }
+}
+
+/**
+ * Saves a new post to the Firebase DB.
+ */
+// [START write_fan_out]
+function writeNewPost(uid, username, picture, title, body) {
+  // A post entry.
+  var postData = {
+    author: username,
+    uid: uid,
+    body: body,
+    title: title,
+    starCount: 0,
+    authorPic: picture
+  };
+
+  // Get a key for a new Post.
+  var newPostKey = firebase.database().ref().child('posts').push().key;
+
+  // Write the new post's data simultaneously in the posts list and the user's post list.
+  var updates = {};
+  updates['/posts/' + newPostKey] = postData;
+  updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+  return firebase.database().ref().update(updates);
+}
+// [END write_fan_out]
+
+function mousePressed(){
+    writeNewPost("asdf5as4d63as5d4", "monk", "", "titulo", "body" )
 }
 
 function draw() {
     background(255);
+    
+    drawScaleRanking();
     
     fill(255,255,255);    
     stroke('#CCC');
@@ -92,14 +144,11 @@ function draw() {
     line(xHuitzilin,yHuitzilin,xHuitzilin,windowHeight);
     line(xOcelote,yOcelote,xOcelote,windowHeight);
     // marcadores
-    strokeWeight(2);
+   /* strokeWeight(2);
     line(0,yOcelote,xOcelote,yOcelote);
     line(0,yHuitzilin,xHuitzilin,yHuitzilin);
-    line(0,yChapolin,xChapolin,yChapolin);
-    
-   /* line(xOcelote-(wOcelote*escala)/2,yOcelote+(hOcelote*escala)/2,xOcelote+(wOcelote*escala)/2,yOcelote+(hOcelote*escala)/2);    
-    line(xHuitzilin-(wHuitzilin*escala)/2,yHuitzilin+(hHuitzilin*escala)/2,xHuitzilin+(wHuitzilin*escala)/2,yHuitzilin+(hHuitzilin*escala)/2);    
-    line(xChapolin-(wChapolin*escala)/2,yChapolin+(hChapolin*escala)/2,xChapolin+(wChapolin*escala)/2,yChapolin+(hChapolin*escala)/2); */   
+    line(0,yChapolin,xChapolin,yChapolin);    */
+    //drawPodium();
     
     image(imgChapolin, xChapolin, yChapolin, wChapolin*escala, hChapolin*escala);
     image(imgHuitzilin, xHuitzilin, yHuitzilin, wHuitzilin*escala, hHuitzilin*escala);
@@ -108,26 +157,13 @@ function draw() {
         textFont(font);
         fill(0).strokeWeight(0).textSize(40*escala);
         textAlign(CENTER);
-        text("CACAO APP - PUNTAJE GENERAL", 20, 20, windowWidth, windowHeight*0.2);
+        text("CACAO APP\nPUNTAJE GENERAL", 20, 20, windowWidth, windowHeight*0.2);
         textAlign(LEFT);
     }
     
-    var altoRecuadro = 0;
-    
-    for(var i = 30 ; i >= 0 ; i-=5 ){
-        textFont(font);
-        fill(0).strokeWeight(0).textSize(25*escala);
-        //text(""+(i*1)+"K" , 10*escala, (windowHeight-((25.8*escala)*i)) );
-        this.yval = map(i, 0, 30, windowHeight, 200*escala);
-        text(""+(i*1)+"K" , 10*escala,yval);
-    /*    console.log("--");
-        console.log(i);
-        console.log("*");
-        console.log(windowHeight-(25*i));
-        console.log("valor: " + i*1000);*/
-    }
- //  noLoop();
   
+   
+    
 }
 
 function windowResized() {
