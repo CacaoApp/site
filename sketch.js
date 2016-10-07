@@ -101,35 +101,30 @@ function drawScaleRanking(){
     }
 }
 
-/**
- * Saves a new post to the Firebase DB.
- */
-// [START write_fan_out]
-function writeNewPost(uid, username, picture, title, body) {
-  // A post entry.
-  var postData = {
-    author: username,
-    uid: uid,
-    body: body,
-    title: title,
-    starCount: 0,
-    authorPic: picture
-  };
+var refGruposOCelote = firebase.database().ref('grupos/Ocelote/cantidadPuntos');
+refGruposOCelote.on('value', function(snapshot) {
+    //console.log(snapshot.val());
+    puntosOcelote = snapshot.val()
+    setPositions();  
+});
 
-  // Get a key for a new Post.
-  var newPostKey = firebase.database().ref().child('posts').push().key;
+var refGruposHuitzilin = firebase.database().ref('grupos/Huitzilín/cantidadPuntos');
+refGruposHuitzilin.on('value', function(snapshot) {
+    //console.log(snapshot.val());
+    puntosHuitzilin = snapshot.val()
+    setPositions();  
+});
 
-  // Write the new post's data simultaneously in the posts list and the user's post list.
-  var updates = {};
-  updates['/posts/' + newPostKey] = postData;
-  updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+var refGruposChapolín = firebase.database().ref('grupos/Chapolín/cantidadPuntos');
+refGruposChapolín.on('value', function(snapshot) {    
+    //console.log(snapshot.val());
+    puntosChapolin = snapshot.val()
+    setPositions();  
+});
 
-  return firebase.database().ref().update(updates);
-}
-// [END write_fan_out]
 
 function mousePressed(){
-    writeNewPost("asdf5as4d63as5d4", "monk", "", "titulo", "body" )
+  //  writeNewPost("asdf5as4d63as5d4", "monk", "", "titulo", "body" )
 }
 
 function draw() {
