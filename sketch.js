@@ -52,9 +52,9 @@ function setup() {
     
    // this.textoActivado = 0;
     
-    this.puntosHuitzilin = 3800;
-    this.puntosOcelote = 20000;
-    this.puntosChapolin = 5000;
+    this.puntosHuitzilin = 3000;
+    this.puntosOcelote = 30000;
+    this.puntosChapolin = 15000;
     this.maximoPuntos = 30000;
     
     this.wOcelote = imgOcelote.width;
@@ -70,15 +70,15 @@ function setup() {
 
 function setPositions(){
     this.xChapolin = (windowWidth/4)*1;
-    this.yChapolin = map(puntosChapolin, 0, maximoPuntos, windowHeight, 0);
+    this.yChapolin = map(puntosChapolin, 0, maximoPuntos, windowHeight, 200*escala);
     this.xOcelote = (windowWidth/4)*2;
-    this.yOcelote = map(puntosOcelote, 0, maximoPuntos, windowHeight, 0);
+    this.yOcelote = map(puntosOcelote, 0, maximoPuntos, windowHeight,200*escala);
     this.xHuitzilin = (windowWidth/4)*3;
-    this.yHuitzilin = map(puntosHuitzilin, 0, maximoPuntos, windowHeight, 0);
+    this.yHuitzilin = map(puntosHuitzilin, 0, maximoPuntos, windowHeight, 200*escala);
 }
 
 function setScale(){
-    this.escala = (windowWidth/imgOcelote.width);
+    this.escala = (windowHeight/imgOcelote.width);
     this.escala = map(escala, 1 , 20, 0.5, 1.5);    
 }
 
@@ -86,11 +86,16 @@ function draw() {
     background(255);
     
     fill(255,255,255);    
-    stroke('#336633');
+    stroke('#CCC');
     strokeWeight(10);    
     line(xChapolin,yChapolin,xChapolin,windowHeight);
     line(xHuitzilin,yHuitzilin,xHuitzilin,windowHeight);
     line(xOcelote,yOcelote,xOcelote,windowHeight);
+    // marcadores
+    strokeWeight(2);
+    line(0,yOcelote,xOcelote,yOcelote);
+    line(0,yHuitzilin,xHuitzilin,yHuitzilin);
+    line(0,yChapolin,xChapolin,yChapolin);
     
    /* line(xOcelote-(wOcelote*escala)/2,yOcelote+(hOcelote*escala)/2,xOcelote+(wOcelote*escala)/2,yOcelote+(hOcelote*escala)/2);    
     line(xHuitzilin-(wHuitzilin*escala)/2,yHuitzilin+(hHuitzilin*escala)/2,xHuitzilin+(wHuitzilin*escala)/2,yHuitzilin+(hHuitzilin*escala)/2);    
@@ -101,9 +106,27 @@ function draw() {
     image(imgOcelote, xOcelote, yOcelote, wOcelote*escala, hOcelote*escala);    
     if(textoActivado == 1){
         textFont(font);
-        fill(0).strokeWeight(0).textSize(30*escala);
+        fill(0).strokeWeight(0).textSize(40*escala);
+        textAlign(CENTER);
         text("CACAO APP - PUNTAJE GENERAL", 20, 20, windowWidth, windowHeight*0.2);
+        textAlign(LEFT);
     }
+    
+    var altoRecuadro = 0;
+    
+    for(var i = 30 ; i >= 0 ; i-=5 ){
+        textFont(font);
+        fill(0).strokeWeight(0).textSize(25*escala);
+        //text(""+(i*1)+"K" , 10*escala, (windowHeight-((25.8*escala)*i)) );
+        this.yval = map(i, 0, 30, windowHeight, 200*escala);
+        text(""+(i*1)+"K" , 10*escala,yval);
+    /*    console.log("--");
+        console.log(i);
+        console.log("*");
+        console.log(windowHeight-(25*i));
+        console.log("valor: " + i*1000);*/
+    }
+ //  noLoop();
   
 }
 
