@@ -9,11 +9,17 @@ var yOcelote;
 var xHuitzilin;
 var yHuitzilin;
 
+////////////////////
 var puntosHuitzilin;
 var puntosOcelote;
 var puntosChapolin;
-
 var maximoPuntos;
+
+////////////////////
+var cacaosHuitzilin;
+var cacaosOcelote;
+var cacaosChapolin;
+var maximoCacaos;
 
 var wOcelote;
 var hOcelote;
@@ -28,17 +34,24 @@ var font;
 var textoActivado;
 var imagenesActivado;
 
-function preload() {
-    
-    font = loadFont("assets/hurryup.ttf", activarTextos);
-    
+ var config = {
+    apiKey: "AIzaSyDj1Ao1CQpZa0t5UO2V1LhgCM6kqE1xPcA",
+    authDomain: "cacaoapp-f9f17.firebaseapp.com",
+    databaseURL: "https://cacaoapp-f9f17.firebaseio.com",
+    storageBucket: "cacaoapp-f9f17.appspot.com",
+    messagingSenderId: "390201177541"
+  };
+  firebase.initializeApp(config);
+
+function preload() {    
+    font = loadFont("assets/hurryup.ttf", activarTextos);    
     imgChapolin = loadImage("assets/chapolin_icon.png");
     imgOcelote = loadImage("assets/ocelote_icon.png");
     imgHuitzilin = loadImage("assets/huitzilin_icon.png"); 
 }
 
 function activarTextos(){
-    console.log("activando textos a true");
+    //console.log("activando textos a true");
     textoActivado = 1;    
 }
 
@@ -47,14 +60,12 @@ function activarImagenes(){
 }
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);        
+    createCanvas(windowWidth, windowHeight);     
     imageMode(CENTER);   
     
-   // this.textoActivado = 0;
-    
-    this.puntosHuitzilin = 3000;
-    this.puntosOcelote = 30000;
-    this.puntosChapolin = 15000;
+    this.puntosHuitzilin = 0;
+    this.puntosOcelote = 0;
+    this.puntosChapolin = 0;
     this.maximoPuntos = 30000;
     
     this.wOcelote = imgOcelote.width;
@@ -124,41 +135,50 @@ refGruposChapolín.on('value', function(snapshot) {
 
 
 function mousePressed(){
-  //  writeNewPost("asdf5as4d63as5d4", "monk", "", "titulo", "body" )
+    //  writeNewPost("asdf5as4d63as5d4", "monk", "", "titulo", "body" )
+    /*if(touchY>0&&touchY<windowHeight*0.2){
+        console.log("lcik");
+    }*/
 }
 
 function draw() {
-    background(255);
-    
-    drawScaleRanking();
+    background(255);    
+    drawScaleRanking();    
     
     fill(255,255,255);    
     stroke('#CCC');
     strokeWeight(10);    
     line(xChapolin,yChapolin,xChapolin,windowHeight);
     line(xHuitzilin,yHuitzilin,xHuitzilin,windowHeight);
-    line(xOcelote,yOcelote,xOcelote,windowHeight);
-    // marcadores
-   /* strokeWeight(2);
-    line(0,yOcelote,xOcelote,yOcelote);
-    line(0,yHuitzilin,xHuitzilin,yHuitzilin);
-    line(0,yChapolin,xChapolin,yChapolin);    */
-    //drawPodium();
+    line(xOcelote,yOcelote,xOcelote,windowHeight);    
+    
+    //drawLevels();
+    //drawPodium();    
     
     image(imgChapolin, xChapolin, yChapolin, wChapolin*escala, hChapolin*escala);
     image(imgHuitzilin, xHuitzilin, yHuitzilin, wHuitzilin*escala, hHuitzilin*escala);
     image(imgOcelote, xOcelote, yOcelote, wOcelote*escala, hOcelote*escala);    
-    if(textoActivado == 1){
+   
+    drawTitle();
+    //windowWidth, windowHeight
+   /* noFill();
+    stroke("#CCC");
+    strokeWeight(1);
+    rect(windowWidth*0.9,0,windowWidth*0.1,windowHeight*0.1);*/
+    
+    //setScale();
+    setPositions();  
+    
+}
+
+function drawTitle(){
+     if(textoActivado == 1){
         textFont(font);
         fill(0).strokeWeight(0).textSize(40*escala);
         textAlign(CENTER);
-        text("CACAO APP\nPUNTAJE GENERAL", 20, 20, windowWidth, windowHeight*0.2);
+        text("CACAO APP\nPUNTAJE GENERAL", 0, 0, windowWidth, windowHeight*0.2);
         textAlign(LEFT);
     }
-    
-  
-   
-    
 }
 
 function windowResized() {
