@@ -184,9 +184,15 @@ function draw() {
     line(xHuitzilin,yHuitzilin,xHuitzilin,windowHeight);
     line(xOcelote,yOcelote,xOcelote,windowHeight);
     line(xMichin,yMichin,xMichin,windowHeight);    
+<<<<<<< HEAD
+    
+    //drawLevels();
+    drawPodium();    
+=======
     
     
     //drawPodium();    
+>>>>>>> 3584ea5ad0c72ab9d75c301072723ed0e537e4e6
     
     image(imgChapolin, xChapolin, yChapolin, wChapolin*escala, hChapolin*escala);
     image(imgHuitzilin, xHuitzilin, yHuitzilin, wHuitzilin*escala, hHuitzilin*escala);
@@ -194,7 +200,10 @@ function draw() {
     image(imgMichin, xMichin, yMichin, wMichin*escala, hMichin*escala);    
    
     drawTitle();
+<<<<<<< HEAD
+=======
     
+>>>>>>> 3584ea5ad0c72ab9d75c301072723ed0e537e4e6
     drawScore();
     //windowWidth, windowHeight
    /* noFill();
