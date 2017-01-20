@@ -1,6 +1,13 @@
 var imgChapolin;
 var imgHuitzilin;
 var imgOcelote;
+var imgMichin;
+
+/*
+Coate
+Tlacuache
+Mazate
+Michin*/
 
 var xChapolin;
 var yChapolin;
@@ -8,11 +15,14 @@ var xOcelote;
 var yOcelote;
 var xHuitzilin;
 var yHuitzilin;
+var xMichin;
+var yMichin;
 
 ////////////////////
 var puntosHuitzilin;
 var puntosOcelote;
 var puntosChapolin;
+var puntosMichin;
 var maximoPuntos;
 
 ////////////////////
@@ -27,6 +37,8 @@ var wHuitzilin;
 var hHuitzilin;
 var wChapolin;
 var hChapolin;
+var wMichin;
+var hMichin;
 
 var escala;
 var font;
@@ -45,9 +57,10 @@ var imagenesActivado;
 
 function preload() {    
     font = loadFont("assets/hurryup.ttf", activarTextos);    
-    imgChapolin = loadImage("assets/chapolin_icon.png");
-    imgOcelote = loadImage("assets/ocelote_icon.png");
-    imgHuitzilin = loadImage("assets/huitzilin_icon.png"); 
+    imgChapolin = loadImage("assets/coate_icon.png");
+    imgOcelote = loadImage("assets/tlacuache_icon.png");
+    imgHuitzilin = loadImage("assets/mazate_icon.png"); 
+    imgMichin = loadImage("assets/michin_icon.png"); 
 }
 
 function activarTextos(){
@@ -73,19 +86,23 @@ function setup() {
     this.wHuitzilin= imgHuitzilin.width;
     this.hHuitzilin = imgHuitzilin.height;
     this.wChapolin= imgChapolin.width;
-    this.hChapolin = imgChapolin.height;    
+    this.hChapolin = imgChapolin.height;  
+    this.wChapolin= imgMichin.width;
+    this.hChapolin = imgMichin.height;  
    
     setScale();
     setPositions();
 }
 
 function setPositions(){
-    this.xChapolin = (windowWidth/4)*1;
+    this.xChapolin = (windowWidth/5)*1;
     this.yChapolin = map(puntosChapolin, 0, maximoPuntos, windowHeight, 250*escala);
-    this.xOcelote = (windowWidth/4)*2;
+    this.xOcelote = (windowWidth/5)*2;
     this.yOcelote = map(puntosOcelote, 0, maximoPuntos, windowHeight, 250*escala);
-    this.xHuitzilin = (windowWidth/4)*3;
+    this.xHuitzilin = (windowWidth/5)*3;
     this.yHuitzilin = map(puntosHuitzilin, 0, maximoPuntos, windowHeight, 250*escala);
+    this.xMichin = (windowWidth/5)*4;
+    this.yMichin = map(puntosHuitzilin, 0, maximoPuntos, windowHeight, 250*escala);
 }
 
 function setScale(){
@@ -98,6 +115,7 @@ function drawPodium(){
     line(xOcelote-(wOcelote*escala)/2,yOcelote+(hOcelote*escala)/2,xOcelote+(wOcelote*escala)/2,yOcelote+(hOcelote*escala)/2);    
     line(xHuitzilin-(wHuitzilin*escala)/2,yHuitzilin+(hHuitzilin*escala)/2,xHuitzilin+(wHuitzilin*escala)/2,yHuitzilin+(hHuitzilin*escala)/2);    
     line(xChapolin-(wChapolin*escala)/2,yChapolin+(hChapolin*escala)/2,xChapolin+(wChapolin*escala)/2,yChapolin+(hChapolin*escala)/2);
+    line(xMichin-(wMichin*escala)/2,yMichin+(hMichin*escala)/2,xMichin+(wMichin*escala)/2,yMichin+(hMichin*escala)/2);
 }
 
 function drawScaleRanking(){
@@ -112,24 +130,37 @@ function drawScaleRanking(){
     }
 }
 
-var refGruposOCelote = firebase.database().ref('grupos/Ocelote/cantidadPuntos');
+/*
+Coate
+Tlacuache
+Mazate
+Michin*/
+
+var refGruposOCelote = firebase.database().ref('grupos/Coate/cantidadPuntos');
 refGruposOCelote.on('value', function(snapshot) {
     //console.log(snapshot.val());
     puntosOcelote = snapshot.val()
     setPositions();  
 });
 
-var refGruposHuitzilin = firebase.database().ref('grupos/Huitzilín/cantidadPuntos');
+var refGruposHuitzilin = firebase.database().ref('grupos/Tlacuache/cantidadPuntos');
 refGruposHuitzilin.on('value', function(snapshot) {
     //console.log(snapshot.val());
     puntosHuitzilin = snapshot.val()
     setPositions();  
 });
 
-var refGruposChapolín = firebase.database().ref('grupos/Chapolín/cantidadPuntos');
+var refGruposChapolín = firebase.database().ref('grupos/Mazate/cantidadPuntos');
 refGruposChapolín.on('value', function(snapshot) {    
     //console.log(snapshot.val());
     puntosChapolin = snapshot.val()
+    setPositions();  
+});
+
+var refGruposMichin = firebase.database().ref('grupos/Michín/cantidadPuntos');
+refGruposMichin.on('value', function(snapshot) {    
+    //console.log(snapshot.val());
+    puntosMichin = snapshot.val()
     setPositions();  
 });
 
@@ -150,7 +181,8 @@ function draw() {
     strokeWeight(10);    
     line(xChapolin,yChapolin,xChapolin,windowHeight);
     line(xHuitzilin,yHuitzilin,xHuitzilin,windowHeight);
-    line(xOcelote,yOcelote,xOcelote,windowHeight);    
+    line(xOcelote,yOcelote,xOcelote,windowHeight);
+    line(xMichin,yMichin,xMichin,windowHeight);    
     
     //drawLevels();
     //drawPodium();    
@@ -158,6 +190,7 @@ function draw() {
     image(imgChapolin, xChapolin, yChapolin, wChapolin*escala, hChapolin*escala);
     image(imgHuitzilin, xHuitzilin, yHuitzilin, wHuitzilin*escala, hHuitzilin*escala);
     image(imgOcelote, xOcelote, yOcelote, wOcelote*escala, hOcelote*escala);    
+    image(imgMichin, xMichin, yMichin, wMichin*escala, hMichin*escala);    
    
     drawTitle();
     //windowWidth, windowHeight
