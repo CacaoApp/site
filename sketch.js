@@ -184,8 +184,8 @@ function draw() {
     line(xOcelote,yOcelote,xOcelote,windowHeight);
     line(xMichin,yMichin,xMichin,windowHeight);    
     
-    
-    //drawPodium();    
+    //drawLevels();
+    drawPodium();    
     
     image(imgChapolin, xChapolin, yChapolin, wChapolin*escala, hChapolin*escala);
     image(imgHuitzilin, xHuitzilin, yHuitzilin, wHuitzilin*escala, hHuitzilin*escala);
@@ -193,7 +193,6 @@ function draw() {
     image(imgMichin, xMichin, yMichin, wMichin*escala, hMichin*escala);    
    
     drawTitle();
-    
     drawScore();
     //windowWidth, windowHeight
    /* noFill();
