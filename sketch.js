@@ -168,12 +168,12 @@ function draw() {
     line(xMazate,yMazate,xMazate,windowHeight);
     line(xMichin,yMichin,xMichin,windowHeight);       
 
-    drawPodium();    
+    //drawPodium();    
     
-    image(imgCoate, xCoate, yCoate, wCoate*escala, hCoate*escala);
-    image(imgTlacuache, xTlacuache, yTlacuache, wTlacuache*escala, hTlacuache*escala);
-    image(imgMazate, xMazate, yMazate, wMazate*escala, hMazate*escala);    
-    image(imgMichin, xMichin, yMichin, wMichin*escala, hMichin*escala);    
+    image(imgCoate, xCoate, yCoate, wCoate*(escala/1.5), hCoate*(escala/1.5));
+    image(imgTlacuache, xTlacuache, yTlacuache, wTlacuache*(escala/2), hTlacuache*(escala/2));
+    image(imgMazate, xMazate, yMazate, wMazate*(escala/1.5), hMazate*(escala/1.5));    
+    image(imgMichin, xMichin, yMichin, wMichin*(escala/1.5), hMichin*(escala/1.5));    
    
     drawTitle();
     drawScore();
