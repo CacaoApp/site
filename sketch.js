@@ -159,7 +159,6 @@ function mousePressed(){
 function draw() {
     background(255);    
     drawScaleRanking();    
-    
     fill(255,255,255);    
     stroke('#CCC');
     strokeWeight(10);    
@@ -167,14 +166,11 @@ function draw() {
     line(xTlacuache,yTlacuache,xTlacuache,windowHeight);
     line(xMazate,yMazate,xMazate,windowHeight);
     line(xMichin,yMichin,xMichin,windowHeight);       
-
-    //drawPodium();    
-    
+    //drawPodium();        
     image(imgCoate, xCoate, yCoate, wCoate*(escala/1.5), hCoate*(escala/1.5));
     image(imgTlacuache, xTlacuache, yTlacuache, wTlacuache*(escala/2), hTlacuache*(escala/2));
     image(imgMazate, xMazate, yMazate, wMazate*(escala/1.5), hMazate*(escala/1.5));    
-    image(imgMichin, xMichin, yMichin, wMichin*(escala/1.5), hMichin*(escala/1.5));    
-   
+    image(imgMichin, xMichin, yMichin, wMichin*(escala/1.5), hMichin*(escala/1.5));  
     drawTitle();
     drawScore();
     setPositions();  
