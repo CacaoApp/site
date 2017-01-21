@@ -1,42 +1,37 @@
-var imgChapolin;
-var imgHuitzilin;
-var imgOcelote;
+var imgCoate;
+var imgTlacuache;
+var imgMazate;
 var imgMichin;
+////////////////////
 
-/*
-Coate
-Tlacuache
-Mazate
-Michin*/
-
-var xChapolin;
-var yChapolin;
-var xOcelote;
-var yOcelote;
-var xHuitzilin;
-var yHuitzilin;
+var xCoate;
+var yCoate;
+var xMazate;
+var yMazate;
+var xTlacuache;
+var yTlacuache;
 var xMichin;
 var yMichin;
 
 ////////////////////
-var puntosHuitzilin;
-var puntosOcelote;
-var puntosChapolin;
+var puntosTlacuache;
+var puntosMazate;
+var puntosCoate;
 var puntosMichin;
 var maximoPuntos;
 
 ////////////////////
-var cacaosHuitzilin;
-var cacaosOcelote;
-var cacaosChapolin;
+var cacaosTlacuache;
+var cacaosMazate;
+var cacaosCoate;
 var maximoCacaos;
 
-var wOcelote;
-var hOcelote;
-var wHuitzilin;
-var hHuitzilin;
-var wChapolin;
-var hChapolin;
+var wMazate;
+var hMazate;
+var wTlacuache;
+var hTlacuache;
+var wCoate;
+var hCoate;
 var wMichin;
 var hMichin;
 
@@ -57,14 +52,13 @@ var imagenesActivado;
 
 function preload() {    
     font = loadFont("assets/hurryup.ttf", activarTextos);    
-    imgChapolin = loadImage("assets/coate_icon.png");
-    imgOcelote = loadImage("assets/tlacuache_icon.png");
-    imgHuitzilin = loadImage("assets/mazate_icon.png"); 
+    imgCoate = loadImage("assets/coate_icon.png");
+    imgMazate = loadImage("assets/mazate_icon.png");
+    imgTlacuache = loadImage("assets/tlacuache_icon.png"); 
     imgMichin = loadImage("assets/michin_icon.png"); 
 }
 
 function activarTextos(){
-    //console.log("activando textos a true");
     textoActivado = 1;    
 }
 
@@ -76,17 +70,17 @@ function setup() {
     createCanvas(windowWidth, windowHeight);     
     imageMode(CENTER);   
     
-    this.puntosHuitzilin = 0;
-    this.puntosOcelote = 0;
-    this.puntosChapolin = 0;
+    this.puntosTlacuache = 0;
+    this.puntosMazate = 0;
+    this.puntosCoate = 0;
     this.maximoPuntos = 30000;
     
-    this.wOcelote = imgOcelote.width;
-    this.hOcelote = imgOcelote.height;
-    this.wHuitzilin= imgHuitzilin.width;
-    this.hHuitzilin = imgHuitzilin.height;
-    this.wChapolin= imgChapolin.width;
-    this.hChapolin = imgChapolin.height;  
+    this.wMazate = imgMazate.width;
+    this.hMazate = imgMazate.height;
+    this.wTlacuache= imgTlacuache.width;
+    this.hTlacuache = imgTlacuache.height;
+    this.wCoate= imgCoate.width;
+    this.hCoate = imgCoate.height;  
     this.wMichin= imgMichin.width;
     this.hMichin = imgMichin.height;  
    
@@ -95,26 +89,26 @@ function setup() {
 }
 
 function setPositions(){
-    this.xChapolin = (windowWidth/5)*1;
-    this.yChapolin = map(puntosChapolin, 0, maximoPuntos, windowHeight, 250*escala);
-    this.xOcelote = (windowWidth/5)*2;
-    this.yOcelote = map(puntosOcelote, 0, maximoPuntos, windowHeight, 250*escala);
-    this.xHuitzilin = (windowWidth/5)*3;
-    this.yHuitzilin = map(puntosHuitzilin, 0, maximoPuntos, windowHeight, 250*escala);
+    this.xCoate = (windowWidth/5)*1;
+    this.yCoate = map(puntosCoate, 0, maximoPuntos, windowHeight, 250*escala);
+    this.xMazate = (windowWidth/5)*2;
+    this.yMazate = map(puntosMazate, 0, maximoPuntos, windowHeight, 250*escala);
+    this.xTlacuache = (windowWidth/5)*3;
+    this.yTlacuache = map(puntosTlacuache, 0, maximoPuntos, windowHeight, 250*escala);
     this.xMichin = (windowWidth/5)*4;
-    this.yMichin = map(puntosHuitzilin, 0, maximoPuntos, windowHeight, 250*escala);
+    this.yMichin = map(puntosMichin, 0, maximoPuntos, windowHeight, 250*escala);
 }
 
 function setScale(){
-    this.escala = (windowHeight/imgOcelote.height);
+    this.escala = (windowHeight/imgMazate.height);
     this.escala = map(escala, 1 , 20, 0.5, 1.5);    
 }
 
 function drawPodium(){
     strokeWeight(10);
-    line(xOcelote-(wOcelote*escala)/2,yOcelote+(hOcelote*escala)/2,xOcelote+(wOcelote*escala)/2,yOcelote+(hOcelote*escala)/2);    
-    line(xHuitzilin-(wHuitzilin*escala)/2,yHuitzilin+(hHuitzilin*escala)/2,xHuitzilin+(wHuitzilin*escala)/2,yHuitzilin+(hHuitzilin*escala)/2);    
-    line(xChapolin-(wChapolin*escala)/2,yChapolin+(hChapolin*escala)/2,xChapolin+(wChapolin*escala)/2,yChapolin+(hChapolin*escala)/2);
+    line(xMazate-(wMazate*escala)/2,yMazate+(hMazate*escala)/2,xMazate+(wMazate*escala)/2,yMazate+(hMazate*escala)/2);        
+    line(xTlacuache-(wTlacuache*escala)/2,yTlacuache+(hTlacuache*escala)/2,xTlacuache+(wTlacuache*escala)/2,yTlacuache+(hTlacuache*escala)/2);    
+    line(xCoate-(wCoate*escala)/2,yCoate+(hCoate*escala)/2,xCoate+(wCoate*escala)/2,yCoate+(hCoate*escala)/2);
     line(xMichin-(wMichin*escala)/2,yMichin+(hMichin*escala)/2,xMichin+(wMichin*escala)/2,yMichin+(hMichin*escala)/2);
 }
 
@@ -130,36 +124,26 @@ function drawScaleRanking(){
     }
 }
 
-/*
-Coate
-Tlacuache
-Mazate
-Michin*/
-
-var refGruposOCelote = firebase.database().ref('grupos/Coate/cantidadPuntos');
-refGruposOCelote.on('value', function(snapshot) {
-    //console.log(snapshot.val());
-    puntosOcelote = snapshot.val()
+var refGruposCoate = firebase.database().ref('grupos/Coate/cantidadPuntos');
+refGruposCoate.on('value', function(snapshot) {    
+    puntosCoate = snapshot.val()
     setPositions();  
 });
 
-var refGruposHuitzilin = firebase.database().ref('grupos/Tlacuache/cantidadPuntos');
-refGruposHuitzilin.on('value', function(snapshot) {
-    //console.log(snapshot.val());
-    puntosHuitzilin = snapshot.val()
+var refGruposTlacuache = firebase.database().ref('grupos/Tlacuache/cantidadPuntos');
+refGruposTlacuache.on('value', function(snapshot) {   
+    puntosTlacuache = snapshot.val()
     setPositions();  
 });
 
-var refGruposChapolín = firebase.database().ref('grupos/Mazate/cantidadPuntos');
-refGruposChapolín.on('value', function(snapshot) {    
-    //console.log(snapshot.val());
-    puntosChapolin = snapshot.val()
+var refGruposMazate = firebase.database().ref('grupos/Mazate/cantidadPuntos');
+refGruposMazate.on('value', function(snapshot) {    
+    puntosMazate = snapshot.val()
     setPositions();  
 });
 
 var refGruposMichin = firebase.database().ref('grupos/Michín/cantidadPuntos');
 refGruposMichin.on('value', function(snapshot) {    
-    //console.log(snapshot.val());
     puntosMichin = snapshot.val()
     setPositions();  
 });
@@ -179,28 +163,20 @@ function draw() {
     fill(255,255,255);    
     stroke('#CCC');
     strokeWeight(10);    
-    line(xChapolin,yChapolin,xChapolin,windowHeight);
-    line(xHuitzilin,yHuitzilin,xHuitzilin,windowHeight);
-    line(xOcelote,yOcelote,xOcelote,windowHeight);
-    line(xMichin,yMichin,xMichin,windowHeight);    
-    
-    //drawLevels();
+    line(xCoate,yCoate,xCoate,windowHeight);
+    line(xTlacuache,yTlacuache,xTlacuache,windowHeight);
+    line(xMazate,yMazate,xMazate,windowHeight);
+    line(xMichin,yMichin,xMichin,windowHeight);       
+
     drawPodium();    
     
-    image(imgChapolin, xChapolin, yChapolin, wChapolin*escala, hChapolin*escala);
-    image(imgHuitzilin, xHuitzilin, yHuitzilin, wHuitzilin*escala, hHuitzilin*escala);
-    image(imgOcelote, xOcelote, yOcelote, wOcelote*escala, hOcelote*escala);    
+    image(imgCoate, xCoate, yCoate, wCoate*escala, hCoate*escala);
+    image(imgTlacuache, xTlacuache, yTlacuache, wTlacuache*escala, hTlacuache*escala);
+    image(imgMazate, xMazate, yMazate, wMazate*escala, hMazate*escala);    
     image(imgMichin, xMichin, yMichin, wMichin*escala, hMichin*escala);    
    
     drawTitle();
     drawScore();
-    //windowWidth, windowHeight
-   /* noFill();
-    stroke("#CCC");
-    strokeWeight(1);
-    rect(windowWidth*0.9,0,windowWidth*0.1,windowHeight*0.1);*/
-    
-    //setScale();
     setPositions();  
     
 }
@@ -209,22 +185,11 @@ function drawScore(){
      if(textoActivado == 1){
         textFont(font);
         fill(0).strokeWeight(0).textSize(15*escala);
-        textAlign(CENTER);
-         
-        text("puntos\n"+puntosChapolin, xChapolin-wChapolin/2, yChapolin-hChapolin*1.5, wChapolin, hChapolin);
-         
-        text("puntos\n"+puntosOcelote, xOcelote-wOcelote/2, yOcelote-hOcelote*1.20, wOcelote, hOcelote);
-         
-        text("puntos\n"+puntosHuitzilin, xHuitzilin-wHuitzilin/2, yHuitzilin-hHuitzilin*1.70, wHuitzilin, hHuitzilin);
-         
-        text("puntos\n"+puntosMichin, xMichin-wMichin/2, yMichin-hMichin*2.5, wMichin, hMichin);  
-         
-        /* console.log("x"+xMichin);
-         console.log("y"+yMichin);
-         console.log("w"+wMichin);
-         console.log("h"+hMichin);
-         console.log("pta"+puntosMichin);*/
-         
+        textAlign(CENTER);         
+        text("puntos\n"+puntosCoate, xCoate-wCoate/2, yCoate-hCoate*1.8, wCoate, hCoate);         
+        text("puntos\n"+puntosMazate, xMazate-wMazate/2, yMazate-hMazate*1.65, wMazate, hMazate);         
+        text("puntos\n"+puntosTlacuache, xTlacuache-wTlacuache/2, yTlacuache-hTlacuache*1.5, wTlacuache, hTlacuache);         
+        text("puntos\n"+puntosMichin, xMichin-wMichin/2, yMichin-hMichin*2.4, wMichin, hMichin);  
         textAlign(LEFT);
     }
 }
