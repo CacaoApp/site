@@ -70,9 +70,10 @@ function setup() {
     createCanvas(windowWidth, windowHeight);     
     imageMode(CENTER);   
     
-    this.puntosTlacuache = 0;
+    /*this.puntosTlacuache = 0;
     this.puntosMazate = 0;
     this.puntosCoate = 0;
+    this.puntosMichin = 0;*/
     this.maximoPuntos = 30000;
     
     this.wMazate = imgMazate.width;
