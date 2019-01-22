@@ -1,26 +1,45 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-    <!-- prueba-->
-<script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">    
-  <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
-  <!-- uncomment lines below to include extra p5 libraries -->
-  <!--<script language="javascript" src="libraries/p5.dom.js"></script>-->
-  <!--<script language="javascript" src="libraries/p5.sound.js"></script>-->
-  <script language="javascript" type="text/javascript" src="sketch.js"></script>
-    <style>
-      body {padding: 0; margin: 0; 
-          background-color: lightgray;
-         // background-image: url("assets/fondo.jpg")
-        } 
-      canvas { position:fixed; top:0; left:0; z-index:1; }
-      #contenu { position:relative; z-index:2; }    
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+    <script src="sketch.js"></script>
 </head>
 
-<body></body>
-    
+<body>
+    <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="#">INICIO</a></li>
+                <li><a href="#">REGLAS</a></li>
+                <li><a href="#">CONTACTO</a></li>
+            </ul>
+        </nav>
+        <h1>CACAO APP</h1>
+    </header>
+
+    <section>
+        <h2>filtrado por equipos</h2>
+        <input type="checkbox" name="coate" id="coate_check"><span>coate</span>        
+        <input type="checkbox" name="huitzilin" id="huitzilin_check"><span>huitzilin</span>
+        <input type="checkbox" name="mazate" id="mazate_check"><span>mazate</span>
+        <input type="checkbox" name="michin" id="michin_check"><span>michin</span>
+        
+        <!-- <input type="checkbox" name="coquite" id="coquite_check"><span>coquite</span>        
+        <input type="checkbox" name="ocelote" id="ocelote_check"><span>ocelote</span>
+        <input type="checkbox" name="tlacuache" id="tlacuache_check"><span>tlacuache</span>
+        <input type="checkbox" name="chapolin" id="chapolin_check"><span>chapolin</span> -->
+        <div id="sketch-holder"></div>
+    </section>
+
+    <footer>Cacao app - 2019</footer>
+    <script src="script.js"></script>
+</body>
+
 </html>
