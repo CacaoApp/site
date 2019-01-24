@@ -68,10 +68,6 @@ function setup() {
   cnv.parent('sketch-holder');
   imageMode(CENTER);
 
-  /*this.puntosHuitzilin = 0;
-  this.puntosMazate = 0;
-  this.puntosCoate = 0;
-  this.puntosMichin = 0;*/
   this.maximoPuntos = 50000;
 
   this.wMazate = imgMazate.width;
