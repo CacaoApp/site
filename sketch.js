@@ -81,10 +81,10 @@ function setup() {
   this.wMichin = imgMichin.width;
   this.hMichin = imgMichin.height;
   setScale();
-  setPositions();
+  updatePositions();
 }
 
-function setPositions() {
+function updatePositions() {
   this.xCoate = (windowWidth / 5) * 1;
   this.yCoate = map(puntosCoate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
   this.xMazate = (windowWidth / 5) * 2;
@@ -115,47 +115,53 @@ function drawScaleRanking() {
 var refGruposCoate = firebase.database().ref('grupos/Coate/cantidadPuntos');
 refGruposCoate.on('value', function (snapshot) {
   puntosCoate = snapshot.val()
-  setPositions();
+  updatePositions();
 });
 
 var refGruposHuitzilin = firebase.database().ref('grupos/Huitzilin/cantidadPuntos');
 refGruposHuitzilin.on('value', function (snapshot) {
   puntosHuitzilin = snapshot.val()
-  setPositions();
+  updatePositions();
 });
 
 var refGruposMazate = firebase.database().ref('grupos/Mazate/cantidadPuntos');
 refGruposMazate.on('value', function (snapshot) {
   puntosMazate = snapshot.val()
-  setPositions();
+  updatePositions();
 });
 
 var refGruposMichin = firebase.database().ref('grupos/Michín/cantidadPuntos');
 refGruposMichin.on('value', function (snapshot) {
   puntosMichin = snapshot.val()
-  setPositions();
+  updatePositions();
 });
 
 function draw() {
   background(255);
   drawScaleRanking();
+  drawLines();
+  drawIcons();
+  drawTitle();
+  drawScore();
+
+  updatePositions();
+}
+
+function drawLines() {
   fill(255, 255, 255);
   stroke('#CCC');
   strokeWeight(10);
-
   line(xCoate, yCoate, xCoate, windowHeight * 0.6);
   line(xHuitzilin, yHuitzilin, xHuitzilin, windowHeight * 0.6);
   line(xMazate, yMazate, xMazate, windowHeight * 0.6);
-  line(xMichin, yMichin, xMichin, windowHeight * 0.6);
- 
+  line(xMichin, yMichin, xMichin, windowHeight * 0.6);  
+}
+
+function drawIcons(){
   image(imgCoate, xCoate, yCoate, wCoate * (escala / 1.5), hCoate * (escala / 1.5));
   image(imgHuitzilin, xHuitzilin, yHuitzilin, wHuitzilin * (escala / 2), hHuitzilin * (escala / 2));
   image(imgMazate, xMazate, yMazate, wMazate * (escala / 1.5), hMazate * (escala / 1.5));
   image(imgMichin, xMichin, yMichin, wMichin * (escala / 1.5), hMichin * (escala / 1.5));
-
-  drawTitle();
-  drawScore();
-  setPositions();
 }
 
 function drawScore() {
@@ -183,7 +189,7 @@ function drawTitle() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight * 0.6);
-  setPositions();
+  updatePositions();
   setScale();
 }
 
