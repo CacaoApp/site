@@ -105,7 +105,7 @@ function drawScaleRanking() {
     textFont(font);
     fill(0).strokeWeight(0).textSize(25 * escala);
     this.yval = map(i, 0, 50, windowHeight * 0.6, 250 * escala);
-    text((i) + "K", 10 * escala, yval);
+    text((i) + "K-Cacaos", 10 * escala, yval);
     stroke('#CCC');
     strokeWeight(1);
     line(60 * escala, yval, windowWidth, yval);
@@ -169,10 +169,10 @@ function drawScore() {
     textFont(font);
     fill(0).strokeWeight(0).textSize(15 * escala);
     textAlign(CENTER);
-    text("puntos\n\n" + puntosCoate, xCoate - wCoate / 2, yCoate - hCoate * 1.8, wCoate, hCoate);
-    text("puntos\n\n" + puntosMazate, xMazate - wMazate / 2, yMazate - hMazate * 1.65, wMazate, hMazate);
-    text("puntos\n\n" + puntosHuitzilin, xHuitzilin - wHuitzilin / 2, yHuitzilin - hHuitzilin * 1.5, wHuitzilin, hHuitzilin);
-    text("puntos\n\n" + puntosMichin, xMichin - wMichin / 2, yMichin - hMichin * 2.4, wMichin, hMichin);
+    text("Cacaos\n\n$" + puntosCoate, xCoate - wCoate / 2, yCoate - hCoate * 1.8, wCoate, hCoate);
+    text("Cacaos\n\n$" + puntosMazate, xMazate - wMazate / 2, yMazate - hMazate * 1.65, wMazate, hMazate);
+    text("Cacaos\n\n$" + puntosHuitzilin, xHuitzilin - wHuitzilin / 2, yHuitzilin - hHuitzilin * 1.5, wHuitzilin, hHuitzilin);
+    text("Cacaos\n\n$" + puntosMichin, xMichin - wMichin / 2, yMichin - hMichin * 2.4, wMichin, hMichin);
     textAlign(LEFT);
   }
 }
@@ -192,67 +192,3 @@ function windowResized() {
   updatePositions();
   setScale();
 }
-
-/*
-function drawPodium() {
-  strokeWeight(10);
-  if (mazateVisible === true) {
-    line(xMazate - (wMazate * escala) / 2, yMazate + (hMazate * escala) / 2, xMazate + (wMazate * escala) / 2, yMazate + (hMazate * escala) / 2);
-  }
-  if (huitzilinVisible === true) {
-    line(xHuitzilin - (wHuitzilin * escala) / 2, yHuitzilin + (hHuitzilin * escala) / 2, xHuitzilin + (wHuitzilin * escala) / 2, yHuitzilin + (hHuitzilin * escala) / 2);
-  }
-  if (coateVisible === true) {
-    line(xCoate - (wCoate * escala) / 2, yCoate + (hCoate * escala) / 2, xCoate + (wCoate * escala) / 2, yCoate + (hCoate * escala) / 2);
-  }
-  if (michinVisible === true) {
-    line(xMichin - (wMichin * escala) / 2, yMichin + (hMichin * escala) / 2, xMichin + (wMichin * escala) / 2, yMichin + (hMichin * escala) / 2);
-  }
-}*/
-
-/*
-function filtrateAssignListener() {
-  var selectors = document.getElementsByTagName("input");
-  for (var index = 0; index < selectors.length; index++) {
-    selectors[index].addEventListener("change", function () {
-      if (this.checked) {
-        console.log(this);
-        var id = this.getAttribute("name");
-        switch (id) {
-          case "mazate":
-            console.log("mazate");
-            mazateVisible = true;
-            break;
-          case "coate":
-            console.log("coate");
-            break;
-          case "huitzilin":
-            console.log("huitzilin");
-            break;
-          case "michin":
-            console.log("michin");
-            break;
-        }
-      } else {
-        console.log("OFF");
-        var id = this.getAttribute("name");
-        switch (id) {
-          case "mazate":
-            console.log("mazate");
-            mazateVisible = false;
-            break;
-          case "coate":
-            console.log("coate");
-            break;
-          case "huitzilin":
-            console.log("huitzilin");
-            break;
-          case "michin":
-            console.log("michin");
-            break;
-        }
-      }
-    });
-  }
-}
-*/
