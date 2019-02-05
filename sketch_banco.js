@@ -164,6 +164,7 @@ function drawIcons(){
 }
 
 function drawScore() {
+  // simple update
   if (textoActivado == 1) {
     textFont(font);
     fill(0).strokeWeight(0).textSize(15 * escala);
