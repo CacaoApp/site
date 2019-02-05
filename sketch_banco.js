@@ -37,7 +37,6 @@ var font;
 ////////////////////////////////////////
 var textoActivado;
 var imagenesActivado;
-
 ////////////////////////////////////////
 var mazateVisible =  true;
 var huitzilinVisible =  true;
