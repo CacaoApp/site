@@ -1,0 +1,66 @@
+{
+  "grupos" : {
+    "Coate" : {
+      "cantidadCacaos" : 10000,
+      "cantidadPuntos" : 15600,
+      "nombre" : "Coate"
+    },
+    "Huitzilin" : {
+      "cantidadCacaos" : 10000,
+      "cantidadPuntos" : 15800,
+      "nombre" : "Huitzilin"
+    },
+    "Mazate" : {
+      "cantidadCacaos" : 9200,
+      "cantidadPuntos" : 15000,
+      "nombre" : "Mazate"
+    },
+    "Michín" : {
+      "cantidadCacaos" : 9200,
+      "cantidadPuntos" : 15600,
+      "nombre" : "Michín"
+    }
+  },
+  "retos" : {
+    "-KYp7XSr_xabU1Zdhjj-" : {
+      "descripcionCompleta" : "\"Parte 1: Construcción de una visión de futuro Haciendo uso de la lectura disponible en moodle (HBR - How Smart Connected Products Are Transforming Competition), cada uno de ustedes debe construir en un rango de 500 a 600 palabras una opinión acerca de la importancia de “Internet of Things” en la industria en la cual se desempeña dejando ver algunas de las visiones futuras que usted considera podría materializarse en el futuro en el contexto Colombiano.  El resultado debe ser publicado en el foro (Reto 1 - Internet of Things) usando el botón \"Añadir un nuevo tema de discusión\".  Parte 2: Aporte a una visión externa Usando como referencia por lo menos una de las charlas disponibles en (La visión de \"Internet of things\" en manos de expertos), cada uno de ustedes debe realizar un comentario que aporte a por lo menos una de las opiniones de alguno de sus compañeros de foro (Reto 1 - Internet of Things). (se ingresa en la opinión y se presiona el responder ubicado en la parte inferior derecha)\"",
+      "descripcionCorta" : "Construcción de una visión de futuro",
+      "id" : "reto1",
+      "nombre" : "Reto Internet de las Cosas",
+      "premioCacao" : 500,
+      "premioPuntos" : 3000
+    }
+  },
+  "usuarios" : {
+    "4u4tey6q08cX6k57tOBrgdFUVK42" : {
+      "email" : "mcbet@icesi.edu.co",
+      "grupo" : "Ocelote",
+      "rol" : "admin",
+      "username" : "Mcbet"
+    },
+    "bNVQ7zg82IMA5KhqrmN1Syyn5R93" : {
+      "email" : "jamoncada@icesi.edu.co",
+      "grupo" : "Mazate",
+      "rol" : "admin",
+      "username" : "Monk"
+    }
+  },
+  "estudiantes" : {
+    "A00" : {
+      "nombres" : "Jose Andrés",
+      "apellidos" : "Moncada Quintero",
+      "grupo" : "Ocelote",
+      "logros" : {},
+      "puntosIndividuales" : 0,
+      "id" : "A00"
+    },
+    "A01" : {
+      "nombres" : "Maria Calara",
+      "apellidos" : "Betancourt Velasco",
+      "grupo" : "Ocelote",
+      "logros" : {},
+      "puntosIndividuales" : 0,
+      "id" : "A01"
+    }
+  }
+}
