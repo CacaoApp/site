@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.menu {
+    color: white;
+    background-color: black;
+    font-weight: bold;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+
+.menu li {
+    margin: auto;
+    text-align: center;
+    height: 20px;
+    padding: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu a :hover {
+    color: green;
+}
+
+.menu a :active {
+    text-decoration-color: green;
+}
+
+.main_footer {
+    color: white;
+    background-color: black;
+    height: 20px;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}
+
+
+#list_warriors {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*style for warriors*/
+
+#imagen_prueba{
+    width: 40px;
+    height: 40px;
+    background-color: red;
+}
+
+.warrior_item_list {
+    background-color: #CCC;
+    margin: 5px;
+    display: flex;       
+    line-height: 30px;
+    padding: 5px;        
+}
+
+.warrior_item_list div{
+    width: 100%;
+    text-align: center;
+}
+
+.warrior_item_list img{            
+    width: 30px;
+    vertical-align: middle;
+}
