@@ -1,6 +1,8 @@
 body {
     margin: 0;
     padding: 0;
+    font-size: 16px;
+    font-family: Helvetica, sans-serif;
 }
 
 .menu {
@@ -71,3 +73,33 @@ body {
     width: 30px;
     vertical-align: middle;
 }
+
+
+/*Styles for rules*/
+
+h2{
+    margin: 2em;  
+}
+
+.rules_sections{
+    border-style: solid;
+    width: 100%;
+    background-color: rgb(241, 219, 15);
+    /*display: flex;
+    flex-wrap: wrap;*/
+}
+
+.rules_section_container{
+    width: 90%;
+    margin: auto;
+}
+
+
+.rules_sections h3{
+    margin-top: 0;
+    padding-left: 1em;
+    background-color: black;
+    color: white;
+}
+
+
