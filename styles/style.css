@@ -5,37 +5,37 @@ body {
     font-family: Helvetica, sans-serif;
 }
 
-.menu {
+/*navigation menu*/
+
+nav {
     color: white;
     background-color: black;
     font-weight: bold;
 }
 
-.menu ul {
+nav ul {
     display: flex;
     flex-direction: row;
-    list-style-type: none;
+    list-style-type: none;    
 }
 
-.menu li {
+nav li {
     margin: auto;
     text-align: center;
     height: 20px;
     padding: 20px;
 }
 
-.menu a {
+nav a {
     color: white;
     text-decoration: none;
 }
 
 .menu a :hover {
-    color: green;
+    color: orange;
 }
 
-.menu a :active {
-    text-decoration-color: green;
-}
+/*Footer*/  
 
 .main_footer {
     color: white;
@@ -47,14 +47,14 @@ body {
 }
 
 
+/*style for warriors*/
+
 #list_warriors {
     list-style-type: none;
     padding: 0;
     margin: 0;
     
 }
-
-/*style for warriors*/
 
 .warrior_item_list {
     background-color:white;
@@ -84,8 +84,8 @@ h2{
 .rules_sections{
     border-style: solid;
     width: 100%;
-    background-color: rgb(241, 219, 15);
-    /*display: flex;
+   /* background-color: rgb(241, 219, 15);
+    display: flex;
     flex-wrap: wrap;*/
 }
 
@@ -103,3 +103,71 @@ h2{
 }
 
 
+/*jugador*/
+
+#seccion_jugador{
+    display: flex;
+    flex-direction: row;   
+    justify-content: center;
+    align-items: center;    
+}
+
+.contenedor_tarjeta_usuario{
+    width: 80%;    
+    margin: auto;
+}
+
+#contenedor_imagen_usuario{
+    background-color: #CCC;
+    flex-grow: 1;
+    padding: 1em;    
+}
+#meta_contenedor_informacion_usuario{
+    background-color: #333;
+    flex-grow: 9;
+    display: flex;    
+    flex-direction: column;   
+}
+
+#contenedor_fila_nombre{
+    width: 100%;
+}
+
+#contenedor_nombre_usuario{
+  /*  background-color: #00FFFF; */
+    padding: 1em;      
+    padding-bottom: 0px;
+    text-align: center;
+
+}
+#contenedor_apellido_usuario{
+   /* background-color: #00FFFF; */
+    padding: 1em;      
+    padding-top: 0px;
+    text-align: center;
+}
+
+#contenedor_estadisticas_usuario{
+    width: 100%;
+    display: flex;
+    flex-direction: row;    
+}
+
+#contenedor_puntos_usuario{
+   /*background-color: #FFFF00;*/
+    flex-grow: 1;
+    text-align: center;    
+    padding: 1em;    
+}
+#contenedor_cacaos_usuario{
+    /*background-color: #0000FF;*/
+    flex-grow: 1;
+    text-align: center;    
+    padding: 1em;
+}
+#contenedor_equipo_usuario{
+    /*background-color: #FF0000;*/
+    flex-grow: 1;    
+    text-align: center;    
+    padding: 1em;
+}
