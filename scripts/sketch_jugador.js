@@ -16,9 +16,9 @@ if (identificador === null) {
   var refJugador = firebase.database().ref('estudiantes/' + identificador);
   var nodeNombres = document.getElementById("contenedor_nombre_usuario");
   var nodeApellidos = document.getElementById("contenedor_apellido_usuario");
-  var nodePuntos = document.getElementById("contenedor_puntos_usuario");
-  var nodeCacaos = document.getElementById("contenedor_cacaos_usuario");
-  var nodeGrupo = document.getElementById("contenedor_equipo_usuario");
+  var nodePuntos = document.getElementById("contenedor_puntos_usuario_span");
+  var nodeCacaos = document.getElementById("contenedor_cacaos_usuario_span");
+  var nodeGrupo = document.getElementById("contenedor_equipo_usuario_span");
   refJugador.on('value', function (snapshot) {
     var value = snapshot.val();
     nodeNombres.innerText = value.nombres;
