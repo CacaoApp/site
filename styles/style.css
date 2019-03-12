@@ -1,3 +1,13 @@
+@font-face {
+    font-family: HurryUp;
+    src: url(../assets/hurryup.ttf);
+ }
+
+
+ .ft-hurry{
+    font-family: HurryUP; 
+ }
+
 body {
     margin: 0;
     padding: 0;
@@ -74,10 +84,26 @@ nav a {
     vertical-align: middle;
 }
 
+/*global*/
+
+h1{
+    font-size: 5em;
+    font-family: HurryUp, sans-serif;
+    margin: 2em;  
+}
+
+
+h3{
+    font-size: 3em;
+    font-family: HurryUp, sans-serif;
+    margin: 2em;  
+}
 
 /*Styles for rules*/
 
 h2{
+    font-size: 4em;
+    font-family: HurryUp, sans-serif;
     margin: 2em;  
 }
 

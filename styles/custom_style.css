@@ -1,0 +1,9 @@
+@font-face {
+    font-family: HurryUp;
+    src: url(../assets/hurryup.ttf);
+ }
+
+
+ .ft-hurry{
+    font-family: HurryUP; 
+ }
