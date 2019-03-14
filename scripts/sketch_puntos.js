@@ -245,15 +245,15 @@ function drawScore() {
     textFont(font);
     fill(0).strokeWeight(0).textSize(15 * escala);
     textAlign(CENTER);
-    text("puntos\n\n" + puntosCoate, xCoate - wCoate / 2, yCoate - hCoate * 1.5, wCoate, hCoate);
-    text("puntos\n\n" + puntosMazate, xMazate - wMazate / 2, yMazate - hMazate * 1.5, wMazate, hMazate);
-    text("puntos\n\n" + puntosHuitzilin, xHuitzilin - wHuitzilin / 2, yHuitzilin - hHuitzilin * 1.5, wHuitzilin, hHuitzilin);
-    text("puntos\n\n" + puntosMichin, xMichin - wMichin / 2, yMichin - hMichin * 1.5, wMichin, hMichin);
+    text("puntos\n\n" + (puntosCoate/1000)+"K", xCoate - wCoate / 2, yCoate - hCoate * 1.0, wCoate, hCoate);
+    text("puntos\n\n" + (puntosMazate/1000)+"K", xMazate - wMazate / 2, yMazate - hMazate * 1.0, wMazate, hMazate);
+    text("puntos\n\n" + (puntosHuitzilin/1000)+"K", xHuitzilin - wHuitzilin / 2, yHuitzilin - hHuitzilin * 1.0, wHuitzilin, hHuitzilin);
+    text("puntos\n\n" + (puntosMichin/1000)+"K", xMichin - wMichin / 2, yMichin - hMichin * 1.0, wMichin, hMichin);
     if (nTeams >= 5) {
-      text("puntos\n\n" + puntosTlacuache, xTlacuache - wTlacuache / 2, yTlacuache - hTlacuache * 1.5, wTlacuache, hTlacuache);      
+      text("puntos\n\n" + puntosTlacuache, xTlacuache - wTlacuache / 2, yTlacuache - hTlacuache * 1.0, wTlacuache, hTlacuache);      
     }
     if (nTeams > 5) {
-      text("puntos\n\n" + puntosOcelote, xOcelote - wOcelote / 2, yOcelote - hOcelote * 1.5, wOcelote, hOcelote);
+      text("puntos\n\n" + puntosOcelote, xOcelote - wOcelote / 2, yOcelote - hOcelote * 1.0, wOcelote, hOcelote);
     }
     textAlign(LEFT);
   }
