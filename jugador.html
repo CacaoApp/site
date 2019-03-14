@@ -21,7 +21,7 @@
     <header class="container">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark ft-hurry">
 
-            <a class="navbar-brand" href="#"><img src="/assets/cacaoapp_icon.png" width="40" height="40" class="d-inline-block align-content-center"
+            <a class="navbar-brand" href="#"><img src="assets/cacaoapp_icon.png" width="40" height="40" class="d-inline-block align-content-center"
                     alt="">CACAO GAME</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -59,25 +59,25 @@
     <!-- INICIO CONTENIDO JUGADOR -->
     <section class="container" id="seccion_jugador">
         <article class="card text-center contenedor_tarjeta_usuario">
-            <div class="card-header h1 ft-hurry bg-dark text-light" id="contenedor_fila_nombre">
+            <div class="card-header h1 ft-hurry text-light ca-bg-color-orange" id="contenedor_fila_nombre">
                 <span id="contenedor_nombre_usuario">cargando...</span>
                 <span id="contenedor_apellido_usuario">cargando...</span>
             </div>
             <div class="card-body">
                 <div class="card-text h2" id="contenedor_estadisticas_usuario">                    
-                    <div class="card-img" id="contenedor_imagen_equipo_usuario"><img src="assets/team_images/mazate_team.png" alt="imagen_equipo" width="15%"></div>
+                    <div class="card-img " id="contenedor_imagen_equipo_usuario"><img src="assets/team_images/mazate_team.png" alt="imagen_equipo" width="15%"></div>
                     <div class="card-text h3 ft-hurry" id="contenedor_equipo_usuario"><span id="contenedor_equipo_usuario_span">cargando...</span></div>
                 </div>
             </div>            
             <table class="table ft-hurry">
                 <thead>
-                    <tr>
+                    <tr class="ca-bg-color-dark-gray text-light">
                         <th scope="col">Puntos</th>
                         <th scope="col">Cacaos</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="ca-bg-color-lime text-light">
                         <td>
                             <div id="contenedor_puntos_usuario"><span id="contenedor_puntos_usuario_span">0</span></div>
                         </td>
@@ -91,12 +91,21 @@
     </section>
     <!-- FIN CONTENIDO JUGADOR -->
 
-    <!-- INICIO FOOTER -->
-    <footer class="container blockquote-footer text-right">
-        <div id="rights">Cacao app - 2019</div>
-        <address> Innlab <br> Universidad Icesi - Departamento de Diseño<br> </address>
-    </footer>
-    <!-- FIN FOOTER -->
+     <!-- Footer -->
+     <footer class="container-fluid page-footer font-small blue pt-4">       
+            <!-- Footer Links -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3 bg-dark text-light">
+                <h5 class="ca-color-orange">CACAO GAME</h5>
+                <span class="ca-color-yellow">Innlab Games</span><br>
+                <a class="text-light" href="#">Innlab® Universidad Icesi</a><br>
+                <span class="ca-color-lime">Departamento de Diseño</span><br>
+                Todos los derechos reservados<br>
+                2019              
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
 
     <!-- INICIO SCRIPTS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
