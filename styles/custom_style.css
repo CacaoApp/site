@@ -23,6 +23,7 @@
 
  .ca-color-orange{
     color: var(--cacao-orange-color);
+    color: rgb(223,161,57);
  }
 
  .ca-color-yellow{
@@ -61,6 +62,7 @@
 
 .ca-bg-color-orange{
    background-color: var(--cacao-orange-color);
+   background-color: rgb(223,161,57);
 }
 
 .ca-bg-color-yellow{
