@@ -115,15 +115,15 @@ function updatePositions() {
       break;
 
     case 5:
-      this.xCoate = (windowWidth / nTeams) * 0.5;
+      this.xCoate = (windowWidth*0.8 / nTeams) * 1.0;
       this.yCoate = map(puntosCoate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
-      this.xHuitzilin = (windowWidth / nTeams) * 1.5;
+      this.xHuitzilin = (windowWidth*0.8 / nTeams) * 2.0;
       this.yHuitzilin = map(puntosHuitzilin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
-      this.xMazate = (windowWidth / nTeams) * 2.5;
+      this.xMazate = (windowWidth*0.8 / nTeams) * 3.0;
       this.yMazate = map(puntosMazate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
-      this.xMichin = (windowWidth / nTeams) * 3.5;
+      this.xMichin = (windowWidth*0.8 / nTeams) * 4.0;
       this.yMichin = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
-      this.xTlacuache = (windowWidth / nTeams) * 4.5;
+      this.xTlacuache = (windowWidth*0.8 / nTeams) * 5.0;
       this.yTlacuache = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
       break;
 
@@ -243,7 +243,7 @@ function drawIcons() {
 function drawScore() {
   if (textoActivado == 1) {
     textFont(font);
-    fill(0).strokeWeight(0).textSize(40 * escala);
+    fill(0).strokeWeight(0).textSize(25 * (escala));
     textAlign(CENTER);
     text("$\n" + puntosCoate, xCoate - wCoate / 2, yCoate - hCoate * 1.5, wCoate, hCoate);
     text("$\n" + puntosMazate, xMazate - wMazate / 2, yMazate - hMazate * 1.5, wMazate, hMazate);
