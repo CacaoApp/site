@@ -57,10 +57,13 @@ firebase.initializeApp(config);
 
 function preload() {
   font = loadFont("assets/hurryup.ttf", activarTextos);
-  imgCoate = loadImage("assets/coate_icon.png");
-  imgMazate = loadImage("assets/mazate_icon.png");
-  imgHuitzilin = loadImage("assets/huitzilin_icon.png");
-  imgMichin = loadImage("assets/michin_icon.png");
+
+  imgCoate = loadImage("assets/team_icons/coate_icon.png");
+  imgHuitzilin = loadImage("assets/team_icons/huitzilin_icon.png");
+  imgMazate = loadImage("assets/team_icons/mazate_icon.png");  
+  imgMichin = loadImage("assets/team_icons/michin_icon.png");
+  imgOcelote = loadImage("assets/team_icons/ocelote_icon.png");
+  imgTlacuache = loadImage("assets/team_icons/tlacuache_icon.png");  
 }
 
 function activarTextos() {
@@ -68,18 +71,29 @@ function activarTextos() {
 }
 
 function setup() {
+
   var cnv = createCanvas(windowWidth, windowHeight * 0.6);
   cnv.parent('sketch-holder');
+
   imageMode(CENTER);
+
   this.maximoPuntos = 50000;
-  this.wMazate = imgMazate.width;
-  this.hMazate = imgMazate.height;
-  this.wHuitzilin = imgHuitzilin.width;
-  this.hHuitzilin = imgHuitzilin.height;
+
+  
   this.wCoate = imgCoate.width;
   this.hCoate = imgCoate.height;
+  this.wHuitzilin = imgHuitzilin.width;
+  this.hHuitzilin = imgHuitzilin.height;
+  this.wMazate = imgMazate.width;
+  this.hMazate = imgMazate.height;
   this.wMichin = imgMichin.width;
   this.hMichin = imgMichin.height;
+
+  /*this.wMichin = imgMichin.width;
+  this.hMichin = imgMichin.height;
+  this.wMichin = imgMichin.width;
+  this.hMichin = imgMichin.height;*/
+
   setScale();
   updatePositions();
 }
@@ -158,10 +172,10 @@ function drawLines() {
 }
 
 function drawIcons(){
-  image(imgCoate, xCoate, yCoate, wCoate * (escala / 1.5), hCoate * (escala / 1.5));
-  image(imgHuitzilin, xHuitzilin, yHuitzilin, wHuitzilin * (escala / 2), hHuitzilin * (escala / 2));
-  image(imgMazate, xMazate, yMazate, wMazate * (escala / 1.5), hMazate * (escala / 1.5));
-  image(imgMichin, xMichin, yMichin, wMichin * (escala / 1.5), hMichin * (escala / 1.5));
+  image(imgCoate, xCoate, yCoate, wCoate * (escala), hCoate * (escala));
+  image(imgHuitzilin, xHuitzilin, yHuitzilin, wHuitzilin * (escala), hHuitzilin * (escala));
+  image(imgMazate, xMazate, yMazate, wMazate * (escala), hMazate * (escala));
+  image(imgMichin, xMichin, yMichin, wMichin * (escala), hMichin * (escala));
 }
 
 function drawScore() {
