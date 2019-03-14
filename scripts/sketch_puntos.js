@@ -122,7 +122,7 @@ function updatePositions() {
       this.xMazate = (windowWidth / nTeams) * 2.5;
       this.yMazate = map(puntosMazate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
       this.xMichin = (windowWidth / nTeams) * 3.5;
-      this.yMichin = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+      this.yMichin = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);      
       this.xTlacuache = (windowWidth / nTeams) * 4.5;
       this.yTlacuache = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
       break;
@@ -135,7 +135,7 @@ function updatePositions() {
       this.xMazate = (windowWidth / nTeams) * 2.5;
       this.yMazate = map(puntosMazate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
       this.xMichin = (windowWidth / nTeams) * 3.5;
-      this.yMichin = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+      this.yMichin = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);     
       this.xTlacuache = (windowWidth / nTeams) * 4.5;
       this.yTlacuache = map(puntosTlacuache, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
       this.xOcelote = (windowWidth / nTeams) * 5.5;
@@ -153,7 +153,7 @@ function setScale() {
 
 function drawScaleRanking() {
   for (var i = 50; i >= 0; i -= 10) {
-    textFont(font);    
+    textFont(font);
     fill(0).strokeWeight(0).textSize(25 * escala);
     this.yval = map(i, 0, 50, windowHeight * 0.6, 250 * escala);
     text((i) + "K", 10 * escala, yval);
@@ -164,37 +164,37 @@ function drawScaleRanking() {
 }
 
 function updateFromFirebase() {
-  let refGruposCoate = firebase.database().ref('grupos/Coate/cantidadCacaos');
+  let refGruposCoate = firebase.database().ref('grupos/Coate/cantidadPuntos');
   refGruposCoate.on('value', function (snapshot) {
     puntosCoate = snapshot.val();
     updatePositions();
   });
 
-  let refGruposHuitzilin = firebase.database().ref('grupos/Huitzilin/cantidadCacaos');
+  let refGruposHuitzilin = firebase.database().ref('grupos/Huitzilin/cantidadPuntos');
   refGruposHuitzilin.on('value', function (snapshot) {
     puntosHuitzilin = snapshot.val();
     updatePositions();
   });
 
-  let refGruposMazate = firebase.database().ref('grupos/Mazate/cantidadCacaos');
+  let refGruposMazate = firebase.database().ref('grupos/Mazate/cantidadPuntos');
   refGruposMazate.on('value', function (snapshot) {
     puntosMazate = snapshot.val();
     updatePositions();
   });
 
-  let refGruposMichin = firebase.database().ref('grupos/Michin/cantidadCacaos');
+  let refGruposMichin = firebase.database().ref('grupos/Michin/cantidadPuntos');
   refGruposMichin.on('value', function (snapshot) {
     puntosMichin = snapshot.val();
     updatePositions();
   });
 
-  let refGruposTlacuache = firebase.database().ref('grupos/Tlacuache/cantidadCacaos');
+  let refGruposTlacuache = firebase.database().ref('grupos/Tlacuache/cantidadPuntos');
   refGruposTlacuache.on('value', function (snapshot) {
     puntosTlacuache = snapshot.val();
     updatePositions();
   });
 
-  let refGruposOcelote = firebase.database().ref('grupos/Ocelote/cantidadCacaos');
+  let refGruposOcelote = firebase.database().ref('grupos/Ocelote/cantidadPuntos');
   refGruposOcelote.on('value', function (snapshot) {
     puntosOcelote = snapshot.val();
     updatePositions();
@@ -243,17 +243,17 @@ function drawIcons() {
 function drawScore() {
   if (textoActivado == 1) {
     textFont(font);
-    fill(0).strokeWeight(0).textSize(40 * escala);
+    fill(0).strokeWeight(0).textSize(15 * escala);
     textAlign(CENTER);
-    text("$\n" + puntosCoate, xCoate - wCoate / 2, yCoate - hCoate * 1.5, wCoate, hCoate);
-    text("$\n" + puntosMazate, xMazate - wMazate / 2, yMazate - hMazate * 1.5, wMazate, hMazate);
-    text("$\n" + puntosHuitzilin, xHuitzilin - wHuitzilin / 2, yHuitzilin - hHuitzilin * 1.5, wHuitzilin, hHuitzilin);
-    text("$\n" + puntosMichin, xMichin - wMichin / 2, yMichin - hMichin * 1.5, wMichin, hMichin);
+    text("puntos\n\n" + puntosCoate, xCoate - wCoate / 2, yCoate - hCoate * 1.5, wCoate, hCoate);
+    text("puntos\n\n" + puntosMazate, xMazate - wMazate / 2, yMazate - hMazate * 1.5, wMazate, hMazate);
+    text("puntos\n\n" + puntosHuitzilin, xHuitzilin - wHuitzilin / 2, yHuitzilin - hHuitzilin * 1.5, wHuitzilin, hHuitzilin);
+    text("puntos\n\n" + puntosMichin, xMichin - wMichin / 2, yMichin - hMichin * 1.5, wMichin, hMichin);
     if (nTeams >= 5) {
-      text("$\n" + puntosTlacuache, xTlacuache - wTlacuache / 2, yTlacuache - hTlacuache * 1.5, wTlacuache, hTlacuache);
+      text("puntos\n\n" + puntosTlacuache, xTlacuache - wTlacuache / 2, yTlacuache - hTlacuache * 1.5, wTlacuache, hTlacuache);      
     }
     if (nTeams > 5) {
-      text("$\n" + puntosOcelote, xOcelote - wOcelote / 2, yOcelote - hOcelote * 1.5, wOcelote, hOcelote);
+      text("puntos\n\n" + puntosOcelote, xOcelote - wOcelote / 2, yOcelote - hOcelote * 1.5, wOcelote, hOcelote);
     }
     textAlign(LEFT);
   }
