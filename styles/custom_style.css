@@ -61,12 +61,12 @@
 /*background colors*/
 
 .ca-bg-color-orange{
-   background-color: var(--cacao-orange-color);
+   /*background-color: var(--cacao-orange-color);*/
    background-color: rgb(223,161,57);
 }
 
 .ca-bg-color-yellow{
-   background-color: var(--cacao-yellow-color);
+   /*background-color: var(--cacao-yellow-color);*/
    background-color:rgb(223,161,57);
 }
 
