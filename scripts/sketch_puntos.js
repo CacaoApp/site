@@ -115,16 +115,16 @@ function updatePositions() {
       break;
 
     case 5:
-      this.xCoate = (windowWidth / nTeams) * 0.5;
-      this.yCoate = map(puntosCoate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
-      this.xHuitzilin = (windowWidth / nTeams) * 1.5;
-      this.yHuitzilin = map(puntosHuitzilin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
-      this.xMazate = (windowWidth / nTeams) * 2.5;
-      this.yMazate = map(puntosMazate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
-      this.xMichin = (windowWidth / nTeams) * 3.5;
-      this.yMichin = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);      
-      this.xTlacuache = (windowWidth / nTeams) * 4.5;
-      this.yTlacuache = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xCoate = (windowWidth*0.8 / nTeams) * 1.5;
+    this.yCoate = map(puntosCoate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xHuitzilin = (windowWidth*0.8 / nTeams) * 2.25;
+    this.yHuitzilin = map(puntosHuitzilin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xMazate = (windowWidth*0.8 / nTeams) * 3.0;
+    this.yMazate = map(puntosMazate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xMichin = (windowWidth*0.8 / nTeams) * 3.75;
+    this.yMichin = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xTlacuache = (windowWidth*0.8 / nTeams) * 4.5;
+    this.yTlacuache = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
       break;
 
     case 6:
@@ -228,15 +228,15 @@ function drawLines() {
 }
 
 function drawIcons() {
-  image(imgCoate, xCoate, yCoate, wCoate * (escala), wCoate * (escala));
-  image(imgHuitzilin, xHuitzilin, yHuitzilin, wHuitzilin * (escala), wHuitzilin * (escala));
-  image(imgMazate, xMazate, yMazate, wMazate * (escala), wMazate * (escala));
-  image(imgMichin, xMichin, yMichin, wMichin * (escala), wMichin * (escala));
+  image(imgCoate, xCoate, yCoate, wCoate * (escala/2), wCoate * (escala/2));
+  image(imgHuitzilin, xHuitzilin, yHuitzilin, wHuitzilin * (escala/2), wHuitzilin * (escala/2));
+  image(imgMazate, xMazate, yMazate, wMazate * (escala/2), wMazate * (escala/2));
+  image(imgMichin, xMichin, yMichin, wMichin * (escala/2), wMichin * (escala/2));
   if (nTeams >= 5) {
-    image(imgTlacuache, xTlacuache, yTlacuache, wTlacuache * (escala), wTlacuache * (escala));
+    image(imgTlacuache, xTlacuache, yTlacuache, wTlacuache * (escala/2), wTlacuache * (escala/2));
   }
   if (nTeams > 5) {
-    image(imgOcelote, xOcelote, yOcelote, wOcelote * (escala), wOcelote * (escala));
+    image(imgOcelote, xOcelote, yOcelote, wOcelote * (escala/2), wOcelote * (escala/2));
   }
 }
 
