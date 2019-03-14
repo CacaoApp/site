@@ -19,83 +19,60 @@
 <body>
 
 
-    <header>
+    <header class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ft-hurry">
 
-        <nav class="navbar navbar-dark bg-dark ft-hurry">
-
-            <nav class="navbar navbar-expand-md navbar-dark bg-dark">   
-
-                <a class="navbar-brand" href="#"><img src="site/assets/cacaoapp_icon.png" width="40" height="40" class="d-inline-block align-content-center"
+            <a class="navbar-brand" href="#"><img src="/assets/cacaoapp_icon.png" width="40" height="40" class="d-inline-block align-content-center"
                     alt="">CACAO GAME</a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <div class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="index.html">inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="reglas.html">reglas <span class="sr-only">(current)</span> </a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-            </nav>
+                    </div>
 
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            competencia
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="equipos.html">equipos</a>
+                            <a class="dropdown-item" href="jugadores.html">jugadores</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </nav>
-
-        <!--
-            <nav>
-                <ul>
-                    <li><a href="index.html">INICIO <span></span></a></li>
-                    <li><a href="ranking.html">RANKING</a></li>
-                    <li><a href="banco.html">BANCO</a></li>
-                    <li><a href="jugadores.html">JUGADORES</a></li>
-                    <li><a href="equipos.html">EQUIPOS</a></li>
-                    <li><a href="reglas.html">REGLAS</a></li>
-                </ul>                    
-            </nav>
-        -->
-
     </header>
 
-    <section>
-        <h2>CARACTERÍSTICAS DE LA GAMIFICACIÓN​</h2>
 
-        <section class="rules_sections">
-            <div class="rules_section_container">
-                <h3>LOS EQUIPOS</h3>
-                <p>Los equipos​ están representados por un Animal en lengua Nahuatl​</p>
-                <img src="#" alt="equipos">
+    <section class="container">
+        <h1 class="h1 ft-hurry">CARACTERÍSTICAS DE LA GAMIFICACIÓN​</h1>
+
+        <section class="card">
+            <div class="card-body">
+                <h2 class="card-header bg-dark text-light">EQUIPOS</h2>
+                <img class="card-img-top" src="assets/img_equipos_reglas.png" alt="equipos">
+                <p class="card-text">Los equipos​ están representados por un Animal en lengua Nahuatl​</p>
             </div>
         </section>
 
-        <section class="rules_sections">
-            <div class="rules_section_container">
-                <h3>CACAOS</h3>
-                <p>Son la moneda de la clase, representan beneficios y parte de la nota.​</p>
+        <section class="card">
+            <div class="card-body">
+                <h2 class="card-header bg-dark text-light">CACAOS</h2>
+                <img class="card-img-top" src="assets/img_equipos_reglas.png" alt="equipos">
+                <p class="card-text">Son la moneda de la clase, representan beneficios y parte de la nota.​</p>
                 <p>Existe una asignación inicial de cacaos por cada equipo que podrán usar para obtener:​
                     <ul>
                         <li>Tiempo en las presentaciones. (500 cacaos el minuto)​</li>
@@ -118,64 +95,72 @@
                     </ul>
                 </p>
             </div>
-            <img src="#" alt="cacaos">
         </section>
 
-        <section class="rules_sections">
-            <h3>LOGROS</h3>
-            <p>
-                Los logros son metas alcanzadas por las personas (no equipos) durante la clase, estos pueden ser
-                cambiados
-                por nota en una única condición, se deben alcanzar 3 logros equivalentes a 5 décimas en la nota de
-                proceso.​
-            </p>
-            <p>
-                <h4> Las actividades que otorgan logros son:​</h4>
+
+
+        <section class="card">
+            <div class="card-body">
+                <h2 class="card-header bg-dark text-light">LOGROS</h2>
+                <img class="card-img-top" src="assets/img_equipos_reglas.png" alt="equipos">
+                <p>
+                    Los logros son metas alcanzadas por las personas (no equipos) durante la clase, estos pueden ser
+                    cambiados
+                    por nota en una única condición, se deben alcanzar 3 logros equivalentes a 5 décimas en la nota de
+                    proceso.​
+                </p>
+                <p>
+                    <h4> Las actividades que otorgan logros son:​</h4>
+                    <p>
+                        <ul>
+                            <li>Vender el proyecto (que su propuesta sea seleccionada) (Logro Virtual)​</li>
+                            <li>Pitch Bingo (1 Logo x bingo)</li>
+                            <li>Campeón de las actividades externas (Logro Virtual)​</li>
+                        </ul>
+                    </p>
+                    <h4>Cada persona inicia con 0 logros.</h4>​
+                </p>
+            </div>
+
+        </section>
+
+        <section class="card">
+            <div class="card-body">
+                <h2 class="card-header bg-dark text-light">MEDALLAS</h2>
+                <img class="card-img-top" src="assets/img_equipos_reglas.png" alt="equipos">
+                <p>Las medallas son distinciones especiales entregadas durante el curso en las siguientes actividades:</p>
                 <p>
                     <ul>
-                        <li>Vender el proyecto (que su propuesta sea seleccionada) (Logro Virtual)​</li>
-                        <li>Pitch Bingo (1 Logo x bingo)</li>
-                        <li>Campeón de las actividades externas (Logro Virtual)​</li>
+                        <li>Rápido de Innovación (1 puesto)​</li>
+                        <li>Yincana tecnológica (3 primeros lugares)​</li>
                     </ul>
+                    <h4>Cada persona inicia con 0 medallas</h4>​
                 </p>
-                <h4>Cada persona inicia con 0 logros.</h4>​
-            </p>
-            <img src="#" alt="logros">
+            </div>
         </section>
 
-        <section class="rules_sections">
-            <h3>MEDALLAS</h3>
-            <p>Las medallas son distinciones especiales entregadas durante el curso en las siguientes actividades:</p>
-            <p>
-                <ul>
-                    <li>Rápido de Innovación (1 puesto)​</li>
-                    <li>Yincana tecnológica (3 primeros lugares)​</li>
-                </ul>
-                <h4>Cada persona inicia con 0 medallas</h4>​
-            </p>
-            <img src="#" alt="medallas">
+        <section class="card">
+            <div class="card-body">
+                <h2 class="card-header bg-dark text-light">PUNTOS DE EXPERIENCIA</h2>
+                <img class="card-img-top" src="assets/img_equipos_reglas.png" alt="equipos">
+                <p>
+                    Representan la nota de este curso, serán obtenidos durante el curso a través de las actividades que
+                    se
+                    realicen
+                    en clase y por fuera de ella (Retos y tareas).​
+                </p>
+                <p>
+                    Los puntos obtenidos en las actividades serán canjeados por nota al final del curso, 50.000 puntos
+                    de
+                    experiencia equivalen a 5 en la nota de proceso.​
+                </p>
+                <h4>Cada equipo inicia con 10.000 pts</h4>​
+                <p>(Representados en Cacaos)</p> ​
+            </div>
         </section>
 
-        <section class="rules_sections">
-            <h3>PUNTOS DE EXPERIENCIA</h3>​
-            <p>
-                Representan la nota de este curso, serán obtenidos durante el curso a través de las actividades que se
-                realicen
-                en clase y por fuera de ella (Retos y tareas).​
-            </p>
-            <p>
-                Los puntos obtenidos en las actividades serán canjeados por nota al final del curso, 50.000 puntos de
-                experiencia equivalen a 5 en la nota de proceso.​
-            </p>
-
-            <h4>Cada equipo inicia con 10.000 pts</h4>​
-            <p>(Representados en Cacaos)</p>
-            ​
-        </section>
-        <section class="rules_sections">
-
+        <section class="blockquote">
             <h3>EVALUACIÓN CURSO</h3>
-
             <ul>
                 <li>20% Participación activa en la Yincana y evaluación de proyecto Smart Cities.</li>
                 <li>20% Avances del proyecto y trabajo en clase en las actividades propuestas y bingos. ​</li>
@@ -185,8 +170,10 @@
         </section>
     </section>
 
-    <footer class="main_footer">
+
+    <footer class="container blockquote-footer">
         <div id="rights">Cacao app - 2019</div>
+        <address> Innlab <br> Universidad Icesi - Departamento de Diseño<br> </address>
     </footer>
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
