@@ -15,32 +15,33 @@ refGuerreros.on('value', function (snapshot) {
     var node = document.createElement("li");    
     node.className = "warrior_item_list"; 
 
-    var imagenlink = "assets/ocelote_icon.png"
+    var imagenlink = "assets/team_icons/ocelote_icon.png"
 
     switch(value.grupo){
       case "Ocelote":
-        imagenlink = "assets/ocelote_icon.png"
+        imagenlink = "assets/team_icons/ocelote_icon.png"
       break;
       case "Huitzilin":
-        imagenlink = "assets/huitzilin_icon.png"
+        imagenlink = "assets/team_icons/huitzilin_icon.png"
       break;
       case "Michin":
-        imagenlink = "assets/michin_icon.png"
+        imagenlink = "assets/team_icons/michin_icon.png"
       break;
       case "Coate":
-        imagenlink = "assets/coate_icon.png"
+        imagenlink = "assets/team_icons/coate_icon.png"
       break;
       case "Mazate":
-        imagenlink = "assets/mazate_icon.png"
+        imagenlink = "assets/team_icons/mazate_icon.png"
       break;
       case "Tlacuache":
-        imagenlink = "assets/tlacuache_icon.png"
+        imagenlink = "assets/team_icons/tlacuache_icon.png"
       break;
       case "Chapolin":
-        imagenlink = "assets/chapolin_icon.png"
+        imagenlink = "assets/team_icons/chapolin_icon.png"
       break;
     }
-    node.innerHTML = "<div>"+value.nombres+" "+value.apellidos+" ("+ value.grupo +") "+"</div><div><img width=50px src=\""+imagenlink+"\"></div>";
+    let enlaceJugador = "/jugador.html?cid="+value.id;
+    node.innerHTML = "<div class=\"list-group-item list-group-item-action\">" + "<a class=\"text-dark\" href=\""+  enlaceJugador +"\"> <b>" + value.nombres+" "+value.apellidos+ "</b></a>"+" ("+ value.grupo +")"+ "<div><img width=50px src=\""+imagenlink+"\"></div>" + "</div>";
     document.getElementById("list_warriors").appendChild(node);
   });
 });
