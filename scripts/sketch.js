@@ -1,48 +1,56 @@
+///////////////////////////////////////
 var imgCoate;
 var imgHuitzilin;
 var imgMazate;
 var imgMichin;
+var imgOcelote;
+var imgTlacuache;
 ////////////////////////////////////////
 var xCoate;
 var yCoate;
-var xMazate;
-var yMazate;
 var xHuitzilin;
 var yHuitzilin;
+var xMazate;
+var yMazate;
 var xMichin;
 var yMichin;
+var xOcelote;
+var yOcelote;
+var xTlacuache;
+var yTlacuache;
 ////////////////////////////////////////
+var puntosCoate;
 var puntosHuitzilin;
 var puntosMazate;
-var puntosCoate;
 var puntosMichin;
+var puntosOcelote;
+var puntosTlacuache;
+////////////////////////////////////////
 var maximoPuntos;
 ////////////////////////////////////////
-var cacaosHuitzilin;
-var cacaosMazate;
-var cacaosCoate;
-var maximoCacaos;
-////////////////////////////////////////
-var wMazate;
-var hMazate;
-var wHuitzilin;
-var hHuitzilin;
 var wCoate;
 var hCoate;
+var wHuitzilin;
+var hHuitzilin;
+var wMazate;
+var hMazate;
 var wMichin;
 var hMichin;
+var wOcelote;
+var hOcelote;
+var wTlacuache;
+var hTlacuache;
 ////////////////////////////////////////
 var escala;
 var font;
 ////////////////////////////////////////
 var textoActivado;
 var imagenesActivado;
-
 ////////////////////////////////////////
-var mazateVisible =  true;
-var huitzilinVisible =  true;
-var coateVisible =  true;
-var michinVisible =  true;
+var mazateVisible = true;
+var huitzilinVisible = true;
+var coateVisible = true;
+var michinVisible = true;
 ////////////////////////////////////////////////////////////////
 
 var config = {
@@ -57,13 +65,12 @@ firebase.initializeApp(config);
 
 function preload() {
   font = loadFont("assets/hurryup.ttf", activarTextos);
-
   imgCoate = loadImage("assets/team_icons/coate_icon.png");
   imgHuitzilin = loadImage("assets/team_icons/huitzilin_icon.png");
-  imgMazate = loadImage("assets/team_icons/mazate_icon.png");  
+  imgMazate = loadImage("assets/team_icons/mazate_icon.png");
   imgMichin = loadImage("assets/team_icons/michin_icon.png");
   imgOcelote = loadImage("assets/team_icons/ocelote_icon.png");
-  imgTlacuache = loadImage("assets/team_icons/tlacuache_icon.png");  
+  imgTlacuache = loadImage("assets/team_icons/tlacuache_icon.png");
 }
 
 function activarTextos() {
@@ -74,12 +81,10 @@ function setup() {
 
   var cnv = createCanvas(windowWidth, windowHeight * 0.6);
   cnv.parent('sketch-holder');
-
   imageMode(CENTER);
 
   this.maximoPuntos = 50000;
 
-  
   this.wCoate = imgCoate.width;
   this.hCoate = imgCoate.height;
   this.wHuitzilin = imgHuitzilin.width;
@@ -88,25 +93,59 @@ function setup() {
   this.hMazate = imgMazate.height;
   this.wMichin = imgMichin.width;
   this.hMichin = imgMichin.height;
-
-  /*this.wMichin = imgMichin.width;
-  this.hMichin = imgMichin.height;
-  this.wMichin = imgMichin.width;
-  this.hMichin = imgMichin.height;*/
-
+  this.wOCelote = imgOcelote.width;
+  this.hOcelote = imgOcelote.height;
+  this.wTlacuache = imgTlacuache.width;
+  this.hTlacuache = imgTlacuache.height;
+  updateFromFirebase();
   setScale();
   updatePositions();
 }
 
 function updatePositions() {
-  this.xCoate = (windowWidth / 5) * 1;
-  this.yCoate = map(puntosCoate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
-  this.xMazate = (windowWidth / 5) * 2;
-  this.yMazate = map(puntosMazate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
-  this.xHuitzilin = (windowWidth / 5) * 3;
-  this.yHuitzilin = map(puntosHuitzilin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
-  this.xMichin = (windowWidth / 5) * 4;
-  this.yMichin = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+  let nTeams = 5;
+  switch(nTeams){
+    case 4:
+    this.xCoate = (windowWidth / nTeams) * 0.5;
+    this.yCoate = map(puntosCoate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xHuitzilin = (windowWidth / nTeams) * 1.5;
+    this.yHuitzilin = map(puntosHuitzilin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xMazate = (windowWidth / nTeams) * 2.5;
+    this.yMazate = map(puntosMazate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xMichin = (windowWidth / nTeams) * 3.5;
+    this.yMichin = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);  
+    break;
+
+    case 5:
+    this.xCoate = (windowWidth / nTeams) * 0.5;
+    this.yCoate = map(puntosCoate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xHuitzilin = (windowWidth / nTeams) * 1.5;
+    this.yHuitzilin = map(puntosHuitzilin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xMazate = (windowWidth / nTeams) * 2.5;
+    this.yMazate = map(puntosMazate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xMichin = (windowWidth / nTeams) * 3.5;
+    this.yMichin = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xOcelote = (windowWidth / nTeams) * 4.5;
+    this.yOcelote = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    break;
+
+    case 6:
+    this.xCoate = (windowWidth / nTeams) * 0.5;
+    this.yCoate = map(puntosCoate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xHuitzilin = (windowWidth / nTeams) * 1.5;
+    this.yHuitzilin = map(puntosHuitzilin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xMazate = (windowWidth / nTeams) * 2.5;
+    this.yMazate = map(puntosMazate, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xMichin = (windowWidth / nTeams) * 3.5;
+    this.yMichin = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xOcelote = (windowWidth / nTeams) * 4.5;
+    this.yOcelote = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    this.xTlacuache = (windowWidth / nTeams) * 5.5;
+    this.yTlacuache = map(puntosMichin, 0, maximoPuntos, windowHeight * 0.6, 250 * escala);
+    break;
+  }
+  
+
 }
 
 function setScale() {
@@ -115,7 +154,7 @@ function setScale() {
 }
 
 function drawScaleRanking() {
-  for (var i = 50; i >= 0; i -= 5) {
+  for (var i = 50; i >= 0; i -= 10) {
     textFont(font);
     fill(0).strokeWeight(0).textSize(25 * escala);
     this.yval = map(i, 0, 50, windowHeight * 0.6, 250 * escala);
@@ -126,29 +165,31 @@ function drawScaleRanking() {
   }
 }
 
-var refGruposCoate = firebase.database().ref('grupos/Coate/cantidadPuntos');
-refGruposCoate.on('value', function (snapshot) {
-  puntosCoate = snapshot.val()
-  updatePositions();
-});
+function updateFromFirebase() {
+  let refGruposCoate = firebase.database().ref('grupos/Coate/cantidadPuntos');
+  refGruposCoate.on('value', function (snapshot) {
+    puntosCoate = snapshot.val()
+    updatePositions();
+  });
 
-var refGruposHuitzilin = firebase.database().ref('grupos/Huitzilin/cantidadPuntos');
-refGruposHuitzilin.on('value', function (snapshot) {
-  puntosHuitzilin = snapshot.val()
-  updatePositions();
-});
+  let refGruposHuitzilin = firebase.database().ref('grupos/Huitzilin/cantidadPuntos');
+  refGruposHuitzilin.on('value', function (snapshot) {
+    puntosHuitzilin = snapshot.val()
+    updatePositions();
+  });
 
-var refGruposMazate = firebase.database().ref('grupos/Mazate/cantidadPuntos');
-refGruposMazate.on('value', function (snapshot) {
-  puntosMazate = snapshot.val()
-  updatePositions();
-});
+  let refGruposMazate = firebase.database().ref('grupos/Mazate/cantidadPuntos');
+  refGruposMazate.on('value', function (snapshot) {
+    puntosMazate = snapshot.val()
+    updatePositions();
+  });
 
-var refGruposMichin = firebase.database().ref('grupos/Michín/cantidadPuntos');
-refGruposMichin.on('value', function (snapshot) {
-  puntosMichin = snapshot.val()
-  updatePositions();
-});
+  let refGruposMichin = firebase.database().ref('grupos/Michin/cantidadPuntos');
+  refGruposMichin.on('value', function (snapshot) {
+    puntosMichin = snapshot.val()
+    updatePositions();
+  });
+}
 
 function draw() {
   background(255);
@@ -157,7 +198,6 @@ function draw() {
   drawIcons();
   drawTitle();
   drawScore();
-
   updatePositions();
 }
 
@@ -168,14 +208,18 @@ function drawLines() {
   line(xCoate, yCoate, xCoate, windowHeight * 0.6);
   line(xHuitzilin, yHuitzilin, xHuitzilin, windowHeight * 0.6);
   line(xMazate, yMazate, xMazate, windowHeight * 0.6);
-  line(xMichin, yMichin, xMichin, windowHeight * 0.6);  
+  line(xMichin, yMichin, xMichin, windowHeight * 0.6);
+  line(xOcelote, yOcelote, xOcelote, windowHeight * 0.6);
+  line(xTlacuache, yTlacuache, xTlacuache, windowHeight * 0.6);
 }
 
-function drawIcons(){
+function drawIcons() {
   image(imgCoate, xCoate, yCoate, wCoate * (escala), hCoate * (escala));
   image(imgHuitzilin, xHuitzilin, yHuitzilin, wHuitzilin * (escala), hHuitzilin * (escala));
   image(imgMazate, xMazate, yMazate, wMazate * (escala), hMazate * (escala));
   image(imgMichin, xMichin, yMichin, wMichin * (escala), hMichin * (escala));
+  image(imgOcelote, xOcelote, yOcelote, wOcelote * (escala), hOcelote * (escala));
+  image(imgTlacuache, xTlacuache, yTlacuache, wTlacuache * (escala), hTlacuache * (escala));
 }
 
 function drawScore() {
@@ -187,6 +231,8 @@ function drawScore() {
     text("puntos\n\n" + puntosMazate, xMazate - wMazate / 2, yMazate - hMazate * 1.65, wMazate, hMazate);
     text("puntos\n\n" + puntosHuitzilin, xHuitzilin - wHuitzilin / 2, yHuitzilin - hHuitzilin * 1.5, wHuitzilin, hHuitzilin);
     text("puntos\n\n" + puntosMichin, xMichin - wMichin / 2, yMichin - hMichin * 2.4, wMichin, hMichin);
+    text("puntos\n\n" + puntosOcelote, xOcelote - wOcelote / 2, yOcelote - hOcelote * 1.5, wOcelote, hOcelote);
+    text("puntos\n\n" + puntosTlacuache, xTlacuache - wTlacuache / 2, yTlacuache - hTlacuache * 2.4, wTlacuache, hTlacuache);
     textAlign(LEFT);
   }
 }
